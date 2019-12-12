@@ -7584,7 +7584,10 @@
       "path": "microsoft.win32.primitives/4.3.0",
       "files": [
         ".nupkg.metadata",
+<<<<<<< HEAD
         ".signature.p7s",
+=======
+>>>>>>> 77473f226c641b9a2540dbe98f610817779c1293
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8016,7 +8019,10 @@
       "path": "runtime.native.system.net.security/4.3.0",
       "files": [
         ".nupkg.metadata",
+<<<<<<< HEAD
         ".signature.p7s",
+=======
+>>>>>>> 77473f226c641b9a2540dbe98f610817779c1293
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -10237,7 +10243,10 @@
       "path": "system.net.nameresolution/4.3.0",
       "files": [
         ".nupkg.metadata",
+<<<<<<< HEAD
         ".signature.p7s",
+=======
+>>>>>>> 77473f226c641b9a2540dbe98f610817779c1293
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11401,7 +11410,10 @@
       "path": "system.runtime.serialization.formatters/4.3.0",
       "files": [
         ".nupkg.metadata",
+<<<<<<< HEAD
         ".signature.p7s",
+=======
+>>>>>>> 77473f226c641b9a2540dbe98f610817779c1293
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12705,7 +12717,10 @@
       "path": "system.threading.threadpool/4.3.0",
       "files": [
         ".nupkg.metadata",
+<<<<<<< HEAD
         ".signature.p7s",
+=======
+>>>>>>> 77473f226c641b9a2540dbe98f610817779c1293
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
