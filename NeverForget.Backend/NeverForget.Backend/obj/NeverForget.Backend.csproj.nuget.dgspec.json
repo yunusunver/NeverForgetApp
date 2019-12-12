@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {}
+    "C:\\Users\\yunus\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {
+    "C:\\Users\\yunus\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
+        "projectUniqueName": "C:\\Users\\yunus\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
         "projectName": "NeverForget.Backend",
-        "projectPath": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
-        "packagesPath": "C:\\Users\\ANIL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\obj\\",
+        "projectPath": "C:\\Users\\yunus\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
+        "packagesPath": "C:\\Users\\yunus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yunus\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ANIL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yunus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,13 +57,23 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.10.0, )"
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
