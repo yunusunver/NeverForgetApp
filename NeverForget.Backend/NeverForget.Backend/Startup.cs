@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NeverForget.Backend.Models;
+using NeverForget.Backend.Services;
 
 namespace NeverForget.Backend
 {
@@ -25,7 +27,15 @@ namespace NeverForget.Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<NeverForgetDatabaseSettings>(
+        Configuration.GetSection(nameof(NeverForgetDatabaseSettings)));
+
+        services.AddSingleton<INeverForgetDatabaseSettings>(sp =>
+        sp.GetRequiredService<IOptions<NeverForgetDatabaseSettings>>().Value);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+                services.AddSingleton<UserService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
