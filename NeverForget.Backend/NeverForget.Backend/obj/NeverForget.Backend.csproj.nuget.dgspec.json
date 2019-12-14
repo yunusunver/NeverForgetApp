@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
         "packagesPath": "C:\\Users\\ANIL\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\obj\\",
+=======
+    "C:\\Users\\unver\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\unver\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\unver\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
+        "projectName": "NeverForget.Backend",
+        "projectPath": "C:\\Users\\unver\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
+        "packagesPath": "C:\\Users\\unver\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\unver\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\obj\\",
+>>>>>>> 4496f695f51fec2c4bfdd5a674276d6b5bdad59c
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\ANIL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\unver\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 4496f695f51fec2c4bfdd5a674276d6b5bdad59c
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

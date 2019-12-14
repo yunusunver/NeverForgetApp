@@ -19,5 +19,12 @@ namespace NeverForget.Backend.Controllers
         [HttpGet]
         public ActionResult<List<User>> Get() =>
             _userService.Get();
+        
+        [HttpPost]
+        public ActionResult<User> Create(User user){
+            _userService.Create(user);
+            return CreatedAtRoute("GetUser",new{id=user.id.ToString()},user);
+   
     }
+}
 }
