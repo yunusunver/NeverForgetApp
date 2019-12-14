@@ -9,7 +9,7 @@ namespace NeverForget.Backend.Controllers
     [ApiController]
     public class UserController:ControllerBase
     {
-         private readonly UserService _userService;
+         private UserService _userService;
 
         public UserController(UserService userService)
         {
@@ -20,10 +20,19 @@ namespace NeverForget.Backend.Controllers
         public ActionResult<List<User>> Get() =>
             _userService.Get();
         
+        
         [HttpPost]
-        public ActionResult<User> Create(User user){
-            _userService.Create(user);
-            return CreatedAtRoute("GetUser",new{id=user.id.ToString()},user);
+        [Route("Create")]
+        public IActionResult Create( User user){
+            try
+            {
+                return Ok(_userService.Create(user));
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+           
    
     }
 }

@@ -8,7 +8,7 @@ namespace NeverForget.Backend.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string id { get; set; }
+        public ObjectId Id { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
         public string username { get; set; }
@@ -17,6 +17,6 @@ namespace NeverForget.Backend.Models
         public bool isDeleted { get; set; }
         public bool isNotusing { get; set; }
         public string ownerId { get; set; }
-        public DateTime createdDate { get; set; }
+        // public DateTime createdDate { get; set; }
     }
 }
