@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\yunus\\Desktop\\NeverForgetApp\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
+  "FilePath": "c:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2956,7 +2956,7 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 703
+    "CSharpLanguageVersion": 800
   },
   "RootNamespace": "NeverForget.Backend",
   "Documents": [],
