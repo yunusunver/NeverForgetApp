@@ -19,7 +19,7 @@ namespace NeverForget.Backend.Controllers
         public IActionResult GetNotes([FromQuery] int offset,[FromQuery] int limit,[FromQuery] bool count){
                 try
                 {
-                    var notes = _notes.GetAll(offset,limit,count);
+                     var notes = _notes.GetAll(offset,limit,count);
                     return Ok(notes);
                 }
                 catch(AuthenticationException e){

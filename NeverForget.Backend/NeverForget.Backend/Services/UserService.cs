@@ -16,7 +16,7 @@ namespace NeverForget.Backend.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _users = database.GetCollection<User>(settings.ForgetsCollectionName);
+            _users = database.GetCollection<User>("User");
         }
 
         #region CRUD OPERATIONS
