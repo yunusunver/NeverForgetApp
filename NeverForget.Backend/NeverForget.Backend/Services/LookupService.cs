@@ -15,8 +15,9 @@ namespace NeverForget.Backend.Services
                var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _lookup = database.GetCollection<Lookup>(settings.ForgetsCollectionName);
+            _lookup = database.GetCollection<Lookup>("LookUp");
         }
+        // TEST EDİLDİ ONAYLANDI.
         public resultVM<Lookup> GetAll( int offset, int limit,bool count){
             var countData=0;
 
@@ -37,7 +38,7 @@ namespace NeverForget.Backend.Services
         } 
 
         public Lookup GetById(string id){
-            return _lookup.Find(lookup=>lookup.Id.ToString()==id).FirstOrDefault();
+            return _lookup.Find(lookup=>lookup.Id.Equals(id)).FirstOrDefault();
         }
 
         public List<Lookup> GetByType(string type){
@@ -53,18 +54,18 @@ namespace NeverForget.Backend.Services
         public void DeleteLookup(string id){
             if (id == null) return;
 
-            var findLookup = _lookup.Find(lookupDelete => lookupDelete.Id.ToString() == id).FirstOrDefault();
+            var findLookup = _lookup.Find(lookupDelete => lookupDelete.Id.Equals(id)).FirstOrDefault();
             if (findLookup == null) return;
             else
             {
                 findLookup.isDeleted = true;
-                _lookup.ReplaceOne(u => u.Id.ToString() == id, findLookup);
+                _lookup.ReplaceOne(u => u.Id.Equals( id), findLookup);
 
             }
         }
 
         public void UpdateLookup(string id,Lookup lookup){
-            _lookup.ReplaceOne(a=>a.Id.ToString()==id,lookup);
+            _lookup.ReplaceOne(a=>a.Id.Equals(id),lookup);
 
         }
     }

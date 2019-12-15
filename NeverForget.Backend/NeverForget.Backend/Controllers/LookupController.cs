@@ -5,8 +5,8 @@ using NeverForget.Backend.Services;
 
 namespace NeverForget.Backend.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class LookupController:ControllerBase
     {
         private LookupService _lookupService;
@@ -18,13 +18,14 @@ namespace NeverForget.Backend.Controllers
         }
         [HttpGet]
         [Route("GetAll")]
-        public IActionResult GetAll([FromQuery] int offset,[FromQuery] int limit,[FromQuery] bool count){
+        // TEST EDİLDİ ONAYLANDI
+        public IActionResult GetAll([FromQuery] int offset,[FromQuery] int limit,[FromQuery] bool count=true){
             try
             {
                 var lookups = _lookupService.GetAll(offset,limit,count);
                 return Ok(lookups);
             }
-            catch(AuthenticationException w){
+            catch(AuthenticationException ){
                     return Forbid();
             }
             catch (System.Exception e)
@@ -33,15 +34,18 @@ namespace NeverForget.Backend.Controllers
                 
             }
         }
-        [HttpGet("{id:length(24)}")]
-        [Route("GetById")]
+        
+        
+        [HttpGet]
+        [Route("GetById/{id:length(24)}")]
+        // TEST EDİLDİ ONAYLANDI
         public IActionResult GetById(string id){
             try
             {
                 var lookups = _lookupService.GetById(id);
                 return Ok(lookups);
             }
-            catch(AuthenticationException e){
+            catch(AuthenticationException){
                     return Forbid();
             }
             catch (System.Exception e)
@@ -52,6 +56,7 @@ namespace NeverForget.Backend.Controllers
         }
         [HttpPost]
         [Route("AddLookup")]
+        // TEST EDİLDİ ONAYLANDI
         public IActionResult Create(Lookup lookup)
         {
             try
@@ -66,8 +71,10 @@ namespace NeverForget.Backend.Controllers
             }
         }
 
-                [HttpDelete("{id:length(24)}")]
-        [Route("DeleteLookup")]
+        [HttpDelete]
+        [Route("DeleteLookup/{id:length(24)}")]
+                // TEST EDİLDİ ONAYLANDI
+
         public IActionResult Delete(string id)
         {
             try
@@ -83,8 +90,9 @@ namespace NeverForget.Backend.Controllers
         }
 
 
-        [HttpDelete("{id:length(24)}")]
-        [Route("UpdateLookup")]
+        [HttpPut]
+        [Route("UpdateLookup/{id:length(24)}")]
+        // TEST EDİLDİ ONAYLANDI
         public IActionResult Update(string id, [FromBody] Lookup lookup)
         {
             try
