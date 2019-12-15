@@ -36,6 +36,7 @@ namespace NeverForget.Backend
 
                 services.AddSingleton<UserService>();
                 services.AddSingleton<LookupService>();
+                services.AddSingleton<NotesService>();
 
         }
 
