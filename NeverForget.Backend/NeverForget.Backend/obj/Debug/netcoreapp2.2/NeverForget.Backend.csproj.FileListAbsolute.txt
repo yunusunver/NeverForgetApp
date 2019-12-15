@@ -1,14 +1,28 @@
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\bin\Debug\netcoreapp2.2\NeverForget.Backend.deps.json
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\bin\Debug\netcoreapp2.2\NeverForget.Backend.runtimeconfig.json
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\bin\Debug\netcoreapp2.2\NeverForget.Backend.runtimeconfig.dev.json
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\bin\Debug\netcoreapp2.2\NeverForget.Backend.dll
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\bin\Debug\netcoreapp2.2\NeverForget.Backend.pdb
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.csprojAssemblyReference.cache
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.csproj.CoreCompileInputs.cache
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.RazorAssemblyInfo.cache
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.RazorAssemblyInfo.cs
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.AssemblyInfoInputs.cache
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.AssemblyInfo.cs
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.RazorTargetAssemblyInfo.cache
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.dll
-C:\Users\ANIL\Desktop\New folder\NeverForget.Backend\NeverForget.Backend\obj\Debug\netcoreapp2.2\NeverForget.Backend.pdb
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.deps.json
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.runtimeconfig.json
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.runtimeconfig.dev.json
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.dll
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.pdb
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.csprojAssemblyReference.cache
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.csproj.CoreCompileInputs.cache
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.RazorAssemblyInfo.cache
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.RazorAssemblyInfo.cs
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.AssemblyInfoInputs.cache
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.AssemblyInfo.cs
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.RazorTargetAssemblyInfo.cache
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.dll
+C:/Users/ANIL/Desktop/New folder/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.pdb
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.csprojAssemblyReference.cache
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.csproj.CoreCompileInputs.cache
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.RazorAssemblyInfo.cache
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.RazorAssemblyInfo.cs
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.AssemblyInfoInputs.cache
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.AssemblyInfo.cs
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.dll
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.pdb
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.deps.json
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.runtimeconfig.json
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.runtimeconfig.dev.json
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.dll
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/bin/Debug/netcoreapp2.2/NeverForget.Backend.pdb
+/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/Debug/netcoreapp2.2/NeverForget.Backend.RazorTargetAssemblyInfo.cache

@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {}
+    "/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj": {
+    "/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
+        "projectUniqueName": "/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj",
         "projectName": "NeverForget.Backend",
-        "projectPath": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\NeverForget.Backend.csproj",
-        "packagesPath": "C:\\Users\\ANIL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ANIL\\Desktop\\New folder\\NeverForget.Backend\\NeverForget.Backend\\obj\\",
+        "projectPath": "/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj",
+        "packagesPath": "/home/unver/.nuget/packages/",
+        "outputPath": "/home/unver/Desktop/App/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ANIL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/unver/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

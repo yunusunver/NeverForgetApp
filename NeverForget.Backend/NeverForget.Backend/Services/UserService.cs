@@ -78,7 +78,7 @@ namespace NeverForget.Backend.Services
         // Update 
         public void updateUser(string id,User user){
             
-           var data = _users.ReplaceOne(a=>a.Id.ToString()==id,user);
+            _users.ReplaceOne(a=>a.Id.ToString()==id,user);
         }
 
         public User GetUser(string id){

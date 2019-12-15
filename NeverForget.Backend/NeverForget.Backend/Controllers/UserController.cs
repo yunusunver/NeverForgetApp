@@ -99,7 +99,7 @@ namespace NeverForget.Backend.Controllers
 
         }
 
-        [HttpDelete("{id:length(24)}")]
+        [HttpGet("{id:length(24)}")]
         [Route("GetUser")]
         public IActionResult GetUser(string id)
         {
