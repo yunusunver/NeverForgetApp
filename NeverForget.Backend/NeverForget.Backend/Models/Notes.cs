@@ -8,9 +8,10 @@ namespace NeverForget.Backend.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
-        public int categoryId { get; set; }
+        public ObjectId categoryId { get; set; }
         public string name { get; set; }
         public string Description { get; set; }
         public ObjectId userId { get; set; }
+        public bool isDeleted { get; set; }
     }
 }
