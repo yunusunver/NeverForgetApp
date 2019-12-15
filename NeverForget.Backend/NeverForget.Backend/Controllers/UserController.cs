@@ -4,6 +4,7 @@ using NeverForget.Backend.Models;
 using NeverForget.Backend.Services;
 using System;
 using System.Security.Authentication;
+using MongoDB.Bson;
 
 namespace NeverForget.Backend.Controllers
 {
@@ -23,6 +24,7 @@ namespace NeverForget.Backend.Controllers
 
         [HttpGet]
         [Route("GetUsers")]
+        // TEST EDILDI ONAYLANDI!
         public IActionResult Get([FromQuery] int offset, [FromQuery] int limit, [FromQuery] bool count = true)
         {
             try
@@ -47,6 +49,7 @@ namespace NeverForget.Backend.Controllers
 
         [HttpPost]
         [Route("AddUser")]
+        // TEST EDILDI ONAYLANDI 
         public IActionResult Create(User user)
         {
             try
@@ -65,9 +68,10 @@ namespace NeverForget.Backend.Controllers
         }
 
 
-        [HttpDelete("{id:length(24)}")]
-        [Route("DeleteUser")]
+        [HttpDelete]
+        [Route("DeleteUser/{id:length(24)}")]
         // http://localhost:500/api/user/deleteUser/sfsdfsdfsdfsdfsdfsdfvsddv
+        // TEST EDILDI ONAYLANDI
         public IActionResult Delete(string id)
         {
             try
@@ -83,8 +87,9 @@ namespace NeverForget.Backend.Controllers
         }
 
 
-        [HttpDelete("{id:length(24)}")]
-        [Route("UpdateUser")]
+        [HttpPut]
+        [Route("UpdateUser/{id:length(24)}")]
+        // TEST EDİLDİ ONAYLANDI.
         public IActionResult Update(string id, [FromBody] User user)
         {
             try
@@ -99,13 +104,14 @@ namespace NeverForget.Backend.Controllers
 
         }
 
-        [HttpGet("{id:length(24)}")]
-        [Route("GetUser")]
-        public IActionResult GetUser(string id)
+         [HttpGet]
+        [Route("GetUser/{userNumber}")]
+        // TEST EDILDI ONAYLANDI 
+        public IActionResult GetUser( string userNumber)
         {
             try
             {
-                return Ok(_userService.GetUser(id));
+                return Ok(_userService.GetUser(userNumber));
             }
             catch (System.Exception e)
             {

@@ -50,6 +50,13 @@ namespace NeverForget.Backend.Services
 
             if (user == null) return null;
 
+            // aynı maile sahip birisi varsa alert ver 
+            // if(_users.Find(u=>u.email==user.))
+            if (_users.Find(u=>u.email==user.email).CountDocuments()>0)
+            {
+                throw new Exception("Aynı emaile sahip zaten bir kullanıcı mevcut.");
+            }
+
             else
             {
                 _users.InsertOne(user);
@@ -64,25 +71,33 @@ namespace NeverForget.Backend.Services
         {
             if (id == null) return;
             // kullanıcıyı silme hakkın var mı 
-            User findedUser = _users.Find(user => user.Id.ToString() == id).FirstOrDefault();
+            User findedUser = _users.Find(user => user.Id.Equals(id)).FirstOrDefault();
 
             if (findedUser == null) return;
             else
             {
                 findedUser.isDeleted = true;
-                _users.ReplaceOne(u => u.Id.ToString() == id, findedUser);
+                _users.ReplaceOne(u => u.Id.Equals(id), findedUser);
 
             }
         }
 
         // Update 
         public void updateUser(string id,User user){
+            // Aynı emaile sahip birinin mailini  girdiyse hata ver ! 
+            // if(_users.Find(u=>u.email==user.email).CountDocuments()>0) {
+            //     throw new Exception("Zten email mevcut...");
+            // }
+
             
-            _users.ReplaceOne(a=>a.Id.ToString()==id,user);
+            _users.ReplaceOne(a=>a.Id.Equals(id),user);
+
+            
         }
 
         public User GetUser(string id){
-            return _users.Find(x => x.Id.ToString()==id).FirstOrDefault();
+            var user = _users.Find(u => u.Id.Equals(id)).FirstOrDefault();
+                        return user;
         }
         
         #endregion
