@@ -1,4 +1,5 @@
 using System.Security.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NeverForget.Backend.Models;
 using NeverForget.Backend.Services;
@@ -7,6 +8,8 @@ namespace NeverForget.Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
+
     public class LookupController:ControllerBase
     {
         private LookupService _lookupService;

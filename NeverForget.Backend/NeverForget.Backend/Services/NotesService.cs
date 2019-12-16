@@ -13,10 +13,7 @@ namespace NeverForget.Backend.Services
         private readonly IMongoCollection<Lookup> _lookup;
 
         private LookupService _lookupService;
-
-
-
-
+        
         public NotesService(INeverForgetDatabaseSettings settings, LookupService lookupService)
         {
             var client = new MongoClient(settings.ConnectionString);

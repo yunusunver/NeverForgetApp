@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -17,6 +18,8 @@ namespace NeverForget.Backend.Models
         public bool isDeleted { get; set; }
         public bool isNotusing { get; set; }
         public string ownerId { get; set; }
+
+
         // public DateTime createdDate { get; set; }
     }
 }

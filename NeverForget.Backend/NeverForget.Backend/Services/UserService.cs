@@ -1,26 +1,34 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using NeverForget.Backend.Models;
 using NeverForget.Backend.Models.ViewModel;
+using NeverForget.Backend.Utility;
 
 namespace NeverForget.Backend.Services
 {
     public class UserService
     {
         private readonly IMongoCollection<User> _users;
+        private IConfiguration _configuration;
 
-        public UserService(INeverForgetDatabaseSettings settings)
+        public UserService(INeverForgetDatabaseSettings settings,IConfiguration configuration)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
+            _configuration = configuration;
 
             _users = database.GetCollection<User>("User");
         }
 
         #region CRUD OPERATIONS
-            
+
 
         // Get All
         public resultVM<User> GetAll(int offset, int limit, bool count)
@@ -42,17 +50,20 @@ namespace NeverForget.Backend.Services
             };
             return userList;
         }
-        
+
         // Create
         public User Create(User user)
         {
-            // Rightids e göre filtreleme  
+            // Rightids e göre filtreleme 
+
+            // Encrypt SHA! 
+            user.password = shaUtil.getSHA1(user.password);
 
             if (user == null) return null;
 
             // aynı maile sahip birisi varsa alert ver 
             // if(_users.Find(u=>u.email==user.))
-            if (_users.Find(u=>u.email==user.email).CountDocuments()>0)
+            if (_users.Find(u => u.email == user.email).CountDocuments() > 0)
             {
                 throw new Exception("Aynı emaile sahip zaten bir kullanıcı mevcut.");
             }
@@ -64,6 +75,52 @@ namespace NeverForget.Backend.Services
             }
 
             return user;
+        }
+
+        public loginVM Login(string username, string password)
+        {
+            password = shaUtil.getSHA1(password);
+
+            var key = _configuration.GetValue<string>("secretkey");
+            var bytes = Encoding.UTF8.GetBytes(key);
+
+
+            // Find user 
+            var findedUser = _users.Find(u => u.username.Equals(username) && u.password.Equals(password)).FirstOrDefault();
+            if (findedUser == null) throw new Exception("Böyle bir kullanıcı yok "); // usernotFound --> 
+
+            // User var 
+            // claimslere geçir 
+            // Jwt token  8 biti  hangi 
+            // Create JWT TOKEN HANDLER 
+            var tokenHandler = new JwtSecurityTokenHandler();
+            SecurityTokenDescriptor descriptor = new SecurityTokenDescriptor{
+                Subject = new ClaimsIdentity(new Claim[]{
+                    new Claim("id",findedUser.Id),
+                    new Claim("name",findedUser.Id),
+                    new Claim("surname",findedUser.surname),
+                    new Claim("username",findedUser.username),
+                    new Claim("ownerid",findedUser.ownerId),
+                }),
+                Expires = DateTime.Now.AddDays(1) , // token expire ,
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(bytes) ,SecurityAlgorithms.HmacSha512)
+            };
+
+            var createdToken = tokenHandler.CreateToken(descriptor);
+            var token = tokenHandler.WriteToken(createdToken);
+            
+            loginVM loginvm = new loginVM() {
+                email =  findedUser.email,
+                Id = findedUser.Id,
+                name = findedUser.name,
+                ownerId = findedUser.ownerId,
+                surname = findedUser.surname,
+                Token = token,
+                username = findedUser.username
+            };
+
+            return loginvm;
+
         }
 
         // delete 
@@ -83,23 +140,26 @@ namespace NeverForget.Backend.Services
         }
 
         // Update 
-        public void updateUser(string id,User user){
+        public void updateUser(string id, User user)
+        {
+            //  user.password = shaUtil.getSHA1(user.password);
             // Aynı emaile sahip birinin mailini  girdiyse hata ver ! 
             // if(_users.Find(u=>u.email==user.email).CountDocuments()>0) {
             //     throw new Exception("Zten email mevcut...");
             // }
 
-            
-            _users.ReplaceOne(a=>a.Id.Equals(id),user);
 
-            
+            _users.ReplaceOne(a => a.Id.Equals(id), user);
+
+
         }
 
-        public User GetUser(string id){
+        public User GetUser(string id)
+        {
             var user = _users.Find(u => u.Id.Equals(id)).FirstOrDefault();
-                        return user;
+            return user;
         }
-        
+
         #endregion
 
     }

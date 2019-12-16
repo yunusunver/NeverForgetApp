@@ -13,5 +13,6 @@ namespace NeverForget.Backend.Models
         public string Description { get; set; }
         public string userId { get; set; }
         public bool isDeleted { get; set; }
+        public string Code { get; set; }
     }
 }

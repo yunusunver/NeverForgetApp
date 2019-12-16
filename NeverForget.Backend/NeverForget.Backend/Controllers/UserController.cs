@@ -5,11 +5,15 @@ using NeverForget.Backend.Services;
 using System;
 using System.Security.Authentication;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NeverForget.Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    // [Authorize]
+
+    // Interceptor  Autthorization Bearer tokenin üretildiği 
     public class UserController : ControllerBase
     {
         private UserService _userService;
@@ -21,7 +25,7 @@ namespace NeverForget.Backend.Controllers
 
         #region  USER-SERVICE
 
-
+        
         [HttpGet]
         [Route("GetUsers")]
         // TEST EDILDI ONAYLANDI!
@@ -48,9 +52,9 @@ namespace NeverForget.Backend.Controllers
 
 
         [HttpPost]
-        [Route("AddUser")]
+        [Route("Register")]
         // TEST EDILDI ONAYLANDI 
-        public IActionResult Create(User user)
+        public IActionResult Register(User user)
         {
             try
             {
@@ -63,9 +67,24 @@ namespace NeverForget.Backend.Controllers
             {
                 return BadRequest(e.ToString());
             }
-
-
         }
+
+        [HttpPost]
+        [Route("Login")]
+         public IActionResult Login(  [FromQuery]  string username,  [FromQuery]  string password)
+        {
+            try
+            {
+                    var loginVM = _userService.Login(username,password);
+                    return Ok(loginVM);
+
+            }
+            catch (System.Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
+
 
 
         [HttpDelete]
@@ -121,6 +140,10 @@ namespace NeverForget.Backend.Controllers
         }
 
         #endregion
+
+         // Register 
+
+         // Login 
 
     }
 }
