@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react"
+import ReactDOM from "react-dom"
 
-const title = 'React Webpack Babel Kurulumu';
+const App = () => (
+<>
+  <h1>Hello React</h1>
+  <p>Minimal React configuration.</p>
+</>
+)
 
-ReactDOM.render(
-  <div>{title}</div>,
-  document.getElementById('app')
-);
-module.hot.accept();
+ReactDOM.render(<App />, document.getElementById("root"))
