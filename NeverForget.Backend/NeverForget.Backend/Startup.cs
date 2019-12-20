@@ -57,6 +57,8 @@ namespace NeverForget.Backend
                 services.AddSingleton<UserService>();
                 services.AddSingleton<LookupService>();
                 services.AddSingleton<NotesService>();
+                // Cors 
+            services.AddCors(x => x.AddPolicy("allowAll",p => p.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod().AllowCredentials()));
 
         }
 
@@ -73,7 +75,8 @@ namespace NeverForget.Backend
                 app.UseHsts();
             }
             app.UseAuthentication();
-
+            // Enable cors 
+            app.UseCors("allowAll");
             app.UseHttpsRedirection();
             app.UseMvc();
         }

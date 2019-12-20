@@ -88,7 +88,7 @@ namespace NeverForget.Backend.Services
             // Find user 
             var findedUser = _users.Find(u => u.username.Equals(username) && u.password.Equals(password)).FirstOrDefault();
             if (findedUser == null) throw new Exception("Böyle bir kullanıcı yok "); // usernotFound --> 
-
+            
             // User var 
             // claimslere geçir 
             // Jwt token  8 biti  hangi 
