@@ -55,7 +55,7 @@ export const updateUser =(
     ownerId) => {
     let url = apiBaseUrl+"User/UpdateUser/"+id;
 
-    let response = axios.post(url,{
+    let response = axios.put(url,{
         name,surname,username,email,password,isDeleted,isNotusing,ownerId
     },
     {

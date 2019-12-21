@@ -97,11 +97,11 @@ namespace NeverForget.Backend.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             SecurityTokenDescriptor descriptor = new SecurityTokenDescriptor{
                 Subject = new ClaimsIdentity(new Claim[]{
-                    new Claim("id",findedUser.Id),
-                    new Claim("name",findedUser.name),
-                    new Claim("surname",findedUser.surname),
-                    new Claim("username",findedUser.username),
-                    new Claim("ownerid",findedUser.ownerId),
+                    new Claim("id",Convert.ToString(findedUser.Id)),
+                    new Claim("name",Convert.ToString(findedUser.name)),
+                    new Claim("surname",Convert.ToString(findedUser.surname)),
+                    new Claim("username",Convert.ToString(findedUser.username)),
+                    new Claim("ownerid",Convert.ToString(findedUser.ownerId)),
                 }),
                 Expires = DateTime.Now.AddDays(1) , // token expire ,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(bytes) ,SecurityAlgorithms.HmacSha512)
