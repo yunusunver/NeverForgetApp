@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -59,6 +60,8 @@ namespace NeverForget.Backend
                 services.AddSingleton<NotesService>();
                 // Cors 
             services.AddCors(x => x.AddPolicy("allowAll",p => p.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod().AllowCredentials()));
+            // Add IHttpcontextAccessor
+            services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 
         }
 

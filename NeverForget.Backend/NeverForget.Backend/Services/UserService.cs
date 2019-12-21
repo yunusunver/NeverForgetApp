@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
@@ -13,12 +14,12 @@ using NeverForget.Backend.Utility;
 
 namespace NeverForget.Backend.Services
 {
-    public class UserService
+    public class UserService:baseService
     {
         private readonly IMongoCollection<User> _users;
         private IConfiguration _configuration;
 
-        public UserService(INeverForgetDatabaseSettings settings,IConfiguration configuration)
+        public UserService(IHttpContextAccessor contextAccessor, INeverForgetDatabaseSettings settings,IConfiguration configuration):base(contextAccessor)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
@@ -38,9 +39,9 @@ namespace NeverForget.Backend.Services
             if (count == true)
             {
                 // ownerid ye göre filtrele
-                countData = Convert.ToInt32(_users.Find(user => true).CountDocuments());
+                countData = Convert.ToInt32(_users.Find(user => user.ownerId==CurrentUser.ownerId).CountDocuments());
             }
-            var userPagingList = _users.Find(user => user.isDeleted == false).Skip(offset).Limit(limit).ToList();
+            var userPagingList = _users.Find(user => user.isDeleted == false && user.ownerId==CurrentUser.ownerId ).Skip(offset).Limit(limit).ToList();
             // owner id ye göre listele 
 
             resultVM<User> userList = new resultVM<User>()
@@ -97,7 +98,7 @@ namespace NeverForget.Backend.Services
             SecurityTokenDescriptor descriptor = new SecurityTokenDescriptor{
                 Subject = new ClaimsIdentity(new Claim[]{
                     new Claim("id",findedUser.Id),
-                    new Claim("name",findedUser.Id),
+                    new Claim("name",findedUser.name),
                     new Claim("surname",findedUser.surname),
                     new Claim("username",findedUser.username),
                     new Claim("ownerid",findedUser.ownerId),

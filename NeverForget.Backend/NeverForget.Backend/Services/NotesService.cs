@@ -3,10 +3,11 @@ using MongoDB.Driver;
 using NeverForget.Backend.Models;
 using NeverForget.Backend.Models.ViewModel;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace NeverForget.Backend.Services
 {
-    public class NotesService
+    public class NotesService:baseService
     {
         private readonly IMongoCollection<Notes> _notes;
         private readonly IMongoCollection<User> _users;
@@ -14,7 +15,7 @@ namespace NeverForget.Backend.Services
 
         private LookupService _lookupService;
         
-        public NotesService(INeverForgetDatabaseSettings settings, LookupService lookupService)
+        public NotesService(INeverForgetDatabaseSettings settings, LookupService lookupService,IHttpContextAccessor accessor):base(accessor)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
@@ -28,8 +29,8 @@ namespace NeverForget.Backend.Services
         public resultVM<noteVM> GetAll(int offset, int limit, bool count)
         {
             
-            var users = _users.Find(u => true).ToList(); // ownerid ye göre user listesi çek !
-            var notes = _notes.Find(note => true).ToList();
+            var users = _users.Find(u =>  u.ownerId == CurrentUser.ownerId).ToList(); // ownerid ye göre user listesi çek !
+            var notes = _notes.Find(u => u.userId == CurrentUser.Id).Skip(offset).Limit(limit).ToList();
             var lookups = _lookupService.GetByType("category");
 
             var result = (
@@ -66,6 +67,7 @@ namespace NeverForget.Backend.Services
 
         public Notes AddNotes(Notes note)
         {
+            note.userId = CurrentUser.Id;
             if (note == null)
             {
                 return null;

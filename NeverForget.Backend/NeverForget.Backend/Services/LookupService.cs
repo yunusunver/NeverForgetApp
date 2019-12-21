@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using NeverForget.Backend.Models;
@@ -7,12 +8,12 @@ using NeverForget.Backend.Models.ViewModel;
 
 namespace NeverForget.Backend.Services
 {
-    public class LookupService
+    public class LookupService:baseService
     {
         private readonly IMongoCollection<Lookup> _lookup;
 
-        public LookupService(INeverForgetDatabaseSettings settings){
-               var client = new MongoClient(settings.ConnectionString);
+        public LookupService( IHttpContextAccessor accessor, INeverForgetDatabaseSettings settings): base(accessor) {
+            var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
             _lookup = database.GetCollection<Lookup>("LookUp");
@@ -20,13 +21,12 @@ namespace NeverForget.Backend.Services
         // TEST EDİLDİ ONAYLANDI.
         public resultVM<Lookup> GetAll( int offset, int limit,bool count){
             var countData=0;
-
             if (count == true)
             {
                countData = Convert.ToInt32(_lookup.Find(lookup=>true).CountDocuments());
             }
             
-             var lookupPagingList = _lookup.Find(lookup=>true).Skip(offset).Limit(limit).ToList();
+            var lookupPagingList = _lookup.Find(lookup=>true).Skip(offset).Limit(limit).ToList();
 
             resultVM<Lookup> listLookup = new resultVM<Lookup>{
                 results=lookupPagingList,
@@ -34,7 +34,6 @@ namespace NeverForget.Backend.Services
             };
 
             return  listLookup;
-
         } 
 
         public Lookup GetById(string id){
