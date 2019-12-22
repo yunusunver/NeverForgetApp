@@ -23,18 +23,36 @@ namespace NeverForget.Backend.Services
             }
         }
 
-        private loginVM getFromJwt()
+        public loginVM getFromJwt()
         {
             loginVM result = new loginVM();
-            var claims = this.principal.Claims.ToDictionary(x => x.Type, x => x.Value);
+            try
+            {
+                
+                var claims = this.principal.Claims.ToDictionary(x => x.Type, x => x.Value);
 
-            
-             result.Id = Convert.ToString(claims["id"]);
-            result.name =  Convert.ToString(claims["name"]);
-            result.surname = Convert.ToString(claims["surname"]);
-            result.username = Convert.ToString(claims["username"]);
-            result.ownerId = Convert.ToString(claims["ownerid"]);
-            
+                try
+                {
+                    result.Id = Convert.ToString(claims["id"]);
+                result.name = Convert.ToString(claims["name"]);
+                result.surname = Convert.ToString(claims["surname"]);
+                result.username = Convert.ToString(claims["username"]);
+                result.ownerId = Convert.ToString(claims["ownerid"]);
+
+                }
+                catch (System.Exception e)
+                {
+                    
+                }
+                
+
+            }
+            catch (System.Exception)
+            {
+            }
+
+
+
             return result;
         }
 
