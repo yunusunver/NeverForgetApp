@@ -74,3 +74,13 @@ export const deleteUser = (id) =>{
     let response = axios.delete(url);
     return response;
 }
+
+export const login =(username,password)=>{
+    let url = apiBaseUrl+"User/Login";
+    let response = axios.post(url,{username,password},  {headers:{
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+    }})
+
+    return response;
+}

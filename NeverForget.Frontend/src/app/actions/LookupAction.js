@@ -14,9 +14,6 @@ import {
     DELETE_LOOKUP_START,
     DELETE_LOOKUP_SUCCESS,
     DELETE_LOOKUP_FAIL,
-    GETBYID_NOTE_START,
-    GETBYID_NOTE_SUCCESS,
-    GETBYID_NOTE_FAIL
 } from '../actions/Types';
 
 import {getLookup,createLookup,updateLookup,deleteLookup,getById} from '../api/LookupApi';
@@ -38,7 +35,7 @@ export const createLookupAction=(name,description,type,parentId,isDeleted,order)
         try {
             dispatch({type:CREATE_LOOKUP_START});
             let result = await createLookup(name,description,type,parentId,isDeleted,order);
-            dispatch({type:CREATE_LOOKUP_START,paylaod:result})
+            dispatch({type:CREATE_LOOKUP_SUCCESS,paylaod:result})
         } catch (error) {
             dispatch({type:CREATE_LOOKUP_FAIL,payload:error});
         }
@@ -62,7 +59,7 @@ export const deleteLookupAction=(id)=>{
         try {
             dispatch({type:DELETE_LOOKUP_START});
             let result = await deleteLookup(id);
-            dispatch({type:DELETE_LOOKUP_START,paylaod:result})
+            dispatch({type:DELETE_LOOKUP_SUCCESS,paylaod:result})
         } catch (error) {
             dispatch({type:DELETE_LOOKUP_FAIL,payload:error});
         }
@@ -72,11 +69,11 @@ export const deleteLookupAction=(id)=>{
 export const getByIdLookupAction=(id)=>{
     return async(dispatch)=>{
         try {
-            dispatch({type:GETBYID_NOTE_START});
+            dispatch({type:GETBYID_LOOKUP_START});
             let result = await getById(id);
-            dispatch({type:GETBYID_NOTE_SUCCESS,paylaod:result})
+            dispatch({type:GETBYID_LOOKUP_SUCCESS,paylaod:result})
         } catch (error) {
-            dispatch({type:GETBYID_NOTE_FAIL,payload:error});
+            dispatch({type:GETBYID_LOOKUP_FAIL,payload:error});
         }
     }
 }

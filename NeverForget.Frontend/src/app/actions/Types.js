@@ -59,4 +59,9 @@ export const DELETE_USER_SUCCESS = "delete_user_success";
 export const DELETE_USER_FAIL = "delete_user_fail";
 
 
+export const LOGIN_USER_START = "login_user_start";
+export const LOGIN_USER_SUCCESS = "login_user_success";
+export const LOGIN_USER_FAIL = "login_user_fail";
+
+
 

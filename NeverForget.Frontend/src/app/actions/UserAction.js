@@ -14,10 +14,12 @@ import {
     DELETE_USER_START,
     DELETE_USER_SUCCESS,
     DELETE_USER_FAIL,
-    GETBYID_NOTE_START
+    LOGIN_USER_START,
+    LOGIN_USER_SUCCESS,
+    LOGIN_USER_FAIL
 } from "./Types";
 
-import {getUsers,getUser,updateUser,deleteUser,register} from '../api/UserApi';
+import {getUsers,getUser,updateUser,deleteUser,register,login} from '../api/UserApi';
 
 export const getAllUserAction = (offset,limit,count)=>{
     return async(dispatch)=>{
@@ -31,13 +33,25 @@ export const getAllUserAction = (offset,limit,count)=>{
     }
 }
 
+export const loginUser = (username,password)=>{
+    return async (dispatch)=>{
+        try {
+            dispatch({type:LOGIN_USER_START});
+            let result = await login(username,password);
+            dispatch({type:LOGIN_USER_SUCCESS,paylaod:result})
+        } catch (error) {
+            dispatch({type:LOGIN_USER_FAIL,payload:error})
+        }
+    }
+}
+
 
 export const getByIdUserAction = (id) => {
     return async(dispatch)=>{
         try {
             dispatch({type:GETBYID_USER_START});
             let response = await getUser(id);
-            dispatch({type:GETBYID_NOTE_START,payload:response});
+            dispatch({type:GETBYID_USER_SUCCESS,payload:response});
         } catch (error) {
             dispatch({type:GETBYID_USER_FAIL,payload:error});
         }
