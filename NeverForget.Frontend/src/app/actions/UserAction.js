@@ -25,8 +25,8 @@ export const getAllUserAction = (offset,limit,count)=>{
     return async(dispatch)=>{
         try {
             dispatch({type:GET_ALL_USER_START});
-        let result = await getUsers(offset,limit,count);
-        dispatch({type:GET_ALL_USER_SUCCESS,payload:result});
+            let result = await getUsers(offset,limit,count);
+            dispatch({type:GET_ALL_USER_SUCCESS,payload:result});
         } catch (error) {
             dispatch({type:GET_ALL_USER_FAIL,payload:error})
         }
@@ -37,8 +37,10 @@ export const loginUser = (username,password)=>{
     return async (dispatch)=>{
         try {
             dispatch({type:LOGIN_USER_START});
-            let result = await login(username,password);
-            dispatch({type:LOGIN_USER_SUCCESS,paylaod:result})
+            console.log(result)
+            let result = await login(username,password);    
+            dispatch({type:LOGIN_USER_SUCCESS,payload:result.data})
+            await localStorage.setItem("loginUserApp",JSON.stringify(result.data))
         } catch (error) {
             dispatch({type:LOGIN_USER_FAIL,payload:error})
         }

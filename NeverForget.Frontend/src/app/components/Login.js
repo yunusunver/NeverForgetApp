@@ -1,15 +1,34 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import {Button,FormLabel,FormControl,Form,FormGroup} from 'react-bootstrap';
 import { connect } from 'react-redux'
-import {getAllUserAction} from '../actions/UserAction';
+import {getAllUserAction,loginUser} from '../actions/UserAction';
 import './login.css';
 
 export class Login extends Component {
 
-    // state={
-    //     username:'',
-    //     password:''
-    // }
+   constructor(props){
+    super(props);
+    this.state={
+        username:'',
+        password:'',
+        loggedIn:false
+    }
+    this.onChange=this.onChange.bind(this);
+    this.submitForm=this.submitForm.bind(this);
+   }
+
+   onChange(e){
+       this.setState({
+           [e.target.name]:e.target.value
+       })
+   }
+
+ submitForm(e){
+    e.preventDefault();
+    const {username,password} = this.state;
+    this.props.loginUser(username,password);
+  
+   }
  
 componentDidMount(){
     this.props.getAllUserAction(0,10,true);
@@ -27,18 +46,30 @@ componentDidMount(){
          <div className="main">
             <div className="col-md-6 col-sm-12">
                <div className="login-form">
-                  <form>
-                     <div className="form-group">
-                        <label>User Name</label>
-                        <input type="text" class="form-control" placeholder="User Name"/>
-                     </div>
-                     <div className="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password"/>
-                     </div>
-                     <button type="submit" class="btn btn-black">Login</button>
-                     <button type="submit" class="btn btn-secondary">Register</button>
-                  </form>
+                  <Form onSubmit={this.submitForm}>
+                     <FormGroup>
+                        <FormLabel>User Name</FormLabel>
+                        <FormControl 
+                            type="text" 
+                            placeholder="User Name" 
+                            name="username" 
+                            value={this.state.username}
+                            onChange={this.onChange}/>
+                     </FormGroup>
+
+                     <FormGroup>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl 
+                            type="password" 
+                            placeholder="Password" 
+                            name="password" 
+                            value={this.state.password}
+                            onChange={this.onChange}/>
+                     </FormGroup>
+
+                     <Button type="submit" variant="outline-dark">Login</Button>
+                     <Button  variant="outline-secondary">Register</Button>
+                  </Form>
                </div>
             </div>
          </div>
@@ -47,14 +78,9 @@ componentDidMount(){
     }
 }
 
-const mapStateToProps = (state) => (
-    {
-        user:state.user
-    }
-)
-
-const mapDispatchToProps = {
-    getAllUserAction
+const mapStateToProps = (state) => {
+    return state;
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+export default connect(mapStateToProps, {getAllUserAction,loginUser})(Login)
