@@ -18,7 +18,7 @@ import {
     LOGIN_USER_SUCCESS,
     LOGIN_USER_FAIL
 } from "./Types";
-
+import { Redirect } from 'react-router-dom'
 import {getUsers,getUser,updateUser,deleteUser,register,login} from '../api/UserApi';
 
 export const getAllUserAction = (offset,limit,count)=>{
@@ -40,7 +40,8 @@ export const loginUser = (username,password)=>{
             console.log(result)
             let result = await login(username,password);    
             dispatch({type:LOGIN_USER_SUCCESS,payload:result.data})
-            await localStorage.setItem("loginUserApp",JSON.stringify(result.data))
+            await localStorage.setItem("loginUserApp",JSON.stringify(result.data));
+            <Redirect to='/home' />
         } catch (error) {
             dispatch({type:LOGIN_USER_FAIL,payload:error})
         }

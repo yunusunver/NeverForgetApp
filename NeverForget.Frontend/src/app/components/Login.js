@@ -3,6 +3,7 @@ import {Button,FormLabel,FormControl,Form,FormGroup} from 'react-bootstrap';
 import { connect } from 'react-redux'
 import {getAllUserAction,loginUser} from '../actions/UserAction';
 import './login.css';
+import { Redirect } from 'react-router-dom';
 
 export class Login extends Component {
 
@@ -27,14 +28,20 @@ export class Login extends Component {
     e.preventDefault();
     const {username,password} = this.state;
     this.props.loginUser(username,password);
-  
+    const user=JSON.parse(localStorage.getItem("loginUserApp"));
+    if(user != null){
+        <Redirect to="/home"/>
+    }
    }
  
 componentDidMount(){
     this.props.getAllUserAction(0,10,true);
 }
     render() {
+        const user=JSON.parse(localStorage.getItem("loginUserApp"));
+
         return (
+            user==null?(
             <div>
         <div className="sidenav">
             <div className="login-main-text">
@@ -73,7 +80,7 @@ componentDidMount(){
                </div>
             </div>
          </div>
-         </div>
+         </div>):<Redirect to="/home"/>
         )
     }
 }

@@ -5,7 +5,6 @@ import {Provider} from 'react-redux';
 import App from './App';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import {BrowserRouter} from 'react-router-dom';
 import { applyMiddleware } from "redux"
 
 //Reducers
