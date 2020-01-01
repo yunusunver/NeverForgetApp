@@ -13,11 +13,11 @@ import {getAll} from '../../actions/LookupAction'
 
     componentDidMount(){
          this.props.getAll(0,10,true);
-         Promise.all([
-             getAll(0,10,true)
-         ])
+       
     }
 
+  
+  
     // componentDidUpdate(){
     //     if (this.state.data != this.props.lookup.data.data &&  this.props.lookup.data.data!=undefined) {
     //         this.setState({
@@ -33,17 +33,19 @@ import {getAll} from '../../actions/LookupAction'
         return (
             <div id="wrapper">
                    <div id="sidebar-wrapper">
+                   {console.log()}
             <ul className="sidebar-nav">
-            {this.props.lookup.loading == true?(<Spinner animation="border"/>):( 
-               
-               this.props.lookup.data.data!=null?this.props.lookup.data.data.results.map((item)=>{
-                    <li>
-                        {console.log(item.name)}
+            
+            {this.props.lookup.data.length !=0?this.props.lookup.data.data.results.map((item)=>{
+                return(
+                    <li key={item.id}>
+                        <a href="/">{item.name}</a>
                     </li>
-               }):<Spinner animation="border"/>
-                )}
-               
+                )
+               }):""}
              
+               
+           
             </ul>
         </div>
   
