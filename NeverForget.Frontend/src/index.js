@@ -6,6 +6,7 @@ import App from './App';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { applyMiddleware } from "redux"
+import logger from 'redux-logger';
 
 //Reducers
 import UserReducer from './app/reducers/UserReducer';
@@ -20,7 +21,7 @@ const reducer = combineReducers({
 
 
 
-const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk,logger)));
 
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById("root"))

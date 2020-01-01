@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Button,FormLabel,FormControl,Form,FormGroup} from 'react-bootstrap';
+import {Button,FormLabel,FormControl,Form,FormGroup, Spinner} from 'react-bootstrap';
 import { connect } from 'react-redux'
 import {getAllUserAction,loginUser} from '../actions/UserAction';
 import './login.css';
@@ -73,9 +73,8 @@ componentDidMount(){
                             value={this.state.password}
                             onChange={this.onChange}/>
                      </FormGroup>
-
-                     <Button type="submit" variant="outline-dark">Login</Button>
-                     <Button  variant="outline-secondary">Register</Button>
+                    {this.props.user.loading == true?<Spinner animation="border"/>:(<Button type="submit" variant="outline-dark">Login</Button>)}
+                     
                   </Form>
                </div>
             </div>

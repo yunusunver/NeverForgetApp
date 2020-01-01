@@ -18,7 +18,7 @@ function Header(props) {
             <NavDropdown title={user.username} id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Ayarlar</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Çıkış</NavDropdown.Item>
+              <NavDropdown.Item href="/logout">Çıkış</NavDropdown.Item>
             </NavDropdown>
           </Nav>
       

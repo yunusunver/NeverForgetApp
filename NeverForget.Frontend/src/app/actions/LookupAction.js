@@ -18,11 +18,11 @@ import {
 
 import {getLookup,createLookup,updateLookup,deleteLookup,getById} from '../api/LookupApi';
 
-export const getAll=()=>{
+export const getAll=(offset,limit,count)=>{
     return async(dispatch)=>{
         try {
             dispatch({type:GET_ALL_LOOKUP_START});
-            let result = await getLookup();
+            let result = await getLookup(offset,limit,count);
             dispatch({type:GET_ALL_LOOKUP_SUCCESS,payload:result})
         } catch (error) {
             dispatch({type:GET_ALL_LOOKUP_FAIL,payload:error});

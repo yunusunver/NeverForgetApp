@@ -80,7 +80,6 @@ namespace NeverForget.Backend
             app.UseAuthentication();
             // Enable cors 
             app.UseCors("allowAll");
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

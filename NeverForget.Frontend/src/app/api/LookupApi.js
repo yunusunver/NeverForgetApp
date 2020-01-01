@@ -1,15 +1,18 @@
 import axios from 'axios';
 import {apiBaseUrl} from '../util/constVariable';
 
+
+
 export const  getLookup=(offset,limit,count=true)=>{
     let arr = [];
     arr.push("offset="+offset);
     arr.push("limit="+limit);
     arr.push("count="+count);
     let url = apiBaseUrl+"Lookup/GetAll?offset="+offset+"&limit="+limit+"&count="+count;
-
+    console.log('Bearer '.concat(JSON.parse(localStorage.getItem("loginUserApp")).token));
     //CreateHeaders eklenecek.
-    let response = axios.get(url);
+    let response = axios.get(url,
+       { headers: { Authorization: 'Bearer '.concat(JSON.parse(localStorage.getItem("loginUserApp")).token) } });
     return response;
 }
 
