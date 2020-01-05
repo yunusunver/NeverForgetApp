@@ -19,10 +19,10 @@ namespace NeverForget.Backend.Controllers
         }
         [HttpGet]
         [Route("GetNotes")]
-        public IActionResult GetNotes([FromQuery] int offset,[FromQuery] int limit,[FromQuery] bool count){
+        public IActionResult GetNotes([FromQuery] int offset,[FromQuery] int limit,[FromQuery] bool count,[FromQuery] string categoryname){
                 try
                 {
-                     var notes = _notes.GetAll(offset,limit,count);
+                     var notes = _notes.GetAll(offset,limit,count,categoryname);
                     return Ok(notes);
                 }
                 catch(AuthenticationException e){

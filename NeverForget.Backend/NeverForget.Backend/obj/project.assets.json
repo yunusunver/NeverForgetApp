@@ -13089,11 +13089,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/unver/Desktop/NeverForget/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj",
+      "projectUniqueName": "/home/unver/Desktop/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj",
       "projectName": "NeverForget.Backend",
-      "projectPath": "/home/unver/Desktop/NeverForget/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj",
+      "projectPath": "/home/unver/Desktop/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/NeverForget.Backend.csproj",
       "packagesPath": "/home/unver/.nuget/packages/",
-      "outputPath": "/home/unver/Desktop/NeverForget/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/",
+      "outputPath": "/home/unver/Desktop/NeverForgetApp/NeverForget.Backend/NeverForget.Backend/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"

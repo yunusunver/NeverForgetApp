@@ -3,7 +3,8 @@ import Header from '../Header/Header';
 import Lookup from '../Lookup/Lookup';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
-import { Login } from '../Login';
+import DropdownLookup from '../Lookup/DropdownLookup';
+import TableNoteList  from '../Note/TableNoteList';
 
 export default class Home extends Component {
     render() {
@@ -15,10 +16,11 @@ export default class Home extends Component {
             <Container>
                 <Row>
                     <Col md="3">
-                    <Lookup/>
+                    
                     </Col>
-                    <Col md="9">
-                 
+                    <Col md="9" className="mt-4">
+                        <DropdownLookup/>
+                        <TableNoteList/>
                     </Col>
                 </Row>
               

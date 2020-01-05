@@ -26,12 +26,12 @@ namespace NeverForget.Backend.Services
 
         }
 
-        public resultVM<noteVM> GetAll(int offset, int limit, bool count)
+        public resultVM<noteVM> GetAll(int offset, int limit, bool count,string categoryname)
         {
             
             var users = _users.Find(u =>  u.ownerId == CurrentUser.ownerId).ToList(); // ownerid ye göre user listesi çek !
             var notes = _notes.Find(u => u.userId == CurrentUser.Id).Skip(offset).Limit(limit).ToList();
-            var lookups = _lookupService.GetByType("category");
+            var lookups = _lookupService.GetByType(categoryname);
 
             var result = (
                          // inner  join 

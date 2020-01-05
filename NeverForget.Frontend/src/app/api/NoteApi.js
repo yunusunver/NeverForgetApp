@@ -1,16 +1,18 @@
 import axios from 'axios';
 import {apiBaseUrl} from '../util/constVariable';
 
-export const  getNotes=(offset,limit,count=true)=>{
+export const  getNotes=(offset,limit,count=true,categoryname)=>{
     let arr = [];
     arr.push("offset="+offset);
     arr.push("limit="+limit);
     arr.push("count="+count);
-    let url = apiBaseUrl+"Notes/GetNotes?offset="+offset+"&limit="+limit+"&count="+count;
+    let url = apiBaseUrl+"Notes/GetNotes?offset="+offset+"&limit="+limit+"&count="+count+"&categoryname="+categoryname;
 
     //CreateHeaders eklenecek.
-    let response = axios.get(url);
-    return response;
+    let response = axios.get(url,
+        { headers: { Authorization: 'Bearer '.concat(JSON.parse(localStorage.getItem("loginUserApp")).token) } });
+    console.log(response);
+        return response;
 }
 
 

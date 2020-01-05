@@ -17,11 +17,11 @@ import {
 } from '../actions/Types';
 import {getNotes,updateNote,createNote,getById,deleteNote} from '../api/NoteApi';
 
-export const getAll=()=>{
+export const getAllNotes=(offset,limit,count=true,categoryname)=>{
     return async(dispatch)=>{
         try {
             dispatch({type:GET_ALL_NOTE_START});
-            let result = await getNotes();
+            let result = await getNotes(offset,limit,count,categoryname);
             dispatch({type:GET_ALL_NOTE_SUCCESS,payload:result})
         } catch (error) {
             dispatch({type:GET_ALL_NOTE_FAIL,payload:error});
